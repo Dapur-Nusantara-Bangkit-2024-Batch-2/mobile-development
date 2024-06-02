@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Dapurnusantara"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
