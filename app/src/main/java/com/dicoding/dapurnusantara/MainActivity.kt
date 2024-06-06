@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
             insets
 
         //test push branch 2
+            // nyoba doang
         }
     }
 }
