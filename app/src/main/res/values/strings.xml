@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">dapurnusantara</string>
     <string name="result">result\n</string>
+    <string name="analyze">analisis\n</string>
+    <string name="gallery">galeri</string>
+    <string name="empty_image_warning">gambar tidak ada</string>
 </resources>

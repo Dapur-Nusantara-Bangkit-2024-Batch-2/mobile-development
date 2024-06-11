@@ -1,4 +1,11 @@
 package com.dicoding.dapurnusantara.help
 
-class ImageClassifierHelper {
+import android.content.Context
+
+class ImageClassifierHelper (
+
+
+) {
+
+
 }
