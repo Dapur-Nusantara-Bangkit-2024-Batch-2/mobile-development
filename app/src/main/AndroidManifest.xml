@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Dapurnusantara"
         tools:targetApi="31">
         <activity
+            android:name=".scan.ScanActivity"
+            android:exported="false" />
+        <activity
             android:name=".scan.CameraActivity"
             android:exported="false" />
         <activity

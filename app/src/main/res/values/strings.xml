@@ -4,4 +4,7 @@
     <string name="analyze">analisis\n</string>
     <string name="gallery">galeri</string>
     <string name="empty_image_warning">gambar tidak ada</string>
+    <string name="save">simpan</string>
+    <string name="camera">kamera</string>
+    <string name="scan_makanan">scan</string>
 </resources>
