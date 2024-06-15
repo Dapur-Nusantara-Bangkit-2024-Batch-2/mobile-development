@@ -31,7 +31,7 @@ import java.util.prefs.Preferences
 class ScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanBinding
     private lateinit var mainViewModel: MainViewModel
-    private lateinit var signViewModel: SigninViewModel
+    //private lateinit var signViewModel: RegisterViewModel
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -92,7 +92,7 @@ class ScanActivity : AppCompatActivity() {
 
         binding.btnAddCamera.setOnClickListener { startCameraX() }
         binding.btnAddGalery.setOnClickListener { startGallery() }
-        binding.btnSaveStory.setOnClickListener {
+        binding.btnScan.setOnClickListener {
 
         }
 
@@ -144,8 +144,5 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-//    private fun reduceFileImage(file: File): File {
-//        return file
-//    }
 
 }

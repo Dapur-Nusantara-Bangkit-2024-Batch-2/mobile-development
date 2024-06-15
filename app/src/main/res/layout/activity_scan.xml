@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".scan.ScanActivity">
 
-
         <ImageView
             android:id="@+id/tv_add_img"
             android:layout_width="wrap_content"
@@ -50,13 +49,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_add_img" />
 
     <Button
-        android:id="@+id/btn_save_story"
+        android:id="@+id/btn_scan"
         android:layout_width="387dp"
         android:layout_height="47dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/poppins_medium"
         android:includeFontPadding="false"
-        android:text="@string/save"
+        android:text="@string/scan_makanan"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

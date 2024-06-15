@@ -7,4 +7,5 @@
     <string name="save">simpan</string>
     <string name="camera">kamera</string>
     <string name="scan_makanan">scan</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
