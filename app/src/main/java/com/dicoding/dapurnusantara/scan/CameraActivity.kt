@@ -26,6 +26,7 @@ import com.dicoding.dapurnusantara.databinding.ActivityMainBinding
 import com.dicoding.dapurnusantara.utils.createFile
 import java.nio.file.Files.createFile
 
+
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -127,4 +128,5 @@ class CameraActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
+
 }

@@ -34,7 +34,7 @@ class ScanActivity : AppCompatActivity() {
     //private lateinit var signViewModel: RegisterViewModel
 
     companion object {
-        const val CAMERA_X_RESULT = 200
+        val CAMERA_X_RESULT = 200
 
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
