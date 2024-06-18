@@ -36,6 +36,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        mlModelBinding = true
     }
 }
 
@@ -49,19 +50,16 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.mediation.test.suite)
     implementation(libs.play.services.maps)
+    implementation(libs.tensorflow.lite.support) {
+        // Example exclusion if needed
+        exclude(group = "org.tensorflow", module = "tensorflow-lite")
+    }
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.gpu)
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
-
-
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

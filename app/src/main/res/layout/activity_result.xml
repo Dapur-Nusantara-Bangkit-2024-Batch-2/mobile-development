@@ -25,16 +25,5 @@
             android:layout_margin="16dp"
             android:text="@string/result" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/maps"
-            style="@style/Theme.AppCompat.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="84dp"
-            app:backgroundTint="@color/gmts_blue"
-            app:layout_anchorGravity="bottom|right|end"
-            app:layout_constraintStart_toBottonOf="parent"/>
     </LinearLayout>
 </ScrollView>
