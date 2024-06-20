@@ -34,7 +34,7 @@
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="395dp"
-        android:layout_height="408dp"
+        android:layout_height="400dp"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="30dp"
@@ -89,20 +89,6 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="16dp" />
-
-        <Button
-            android:id="@+id/showMap"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/button_white"
-            android:drawableLeft="@drawable/ic_maps"
-            android:fontFamily="@font/montserrat_bold"
-            android:paddingHorizontal="45dp"
-            android:text="Current Location"
-            android:textAllCaps="false"
-            android:textColor="@color/main_green"
-            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnLogout"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -16,12 +16,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="12dp">
 
             <ImageView
-                android:id="@+id/HomeBanner"
+                android:id="@+id/item_img"
                 android:layout_width="114dp"
                 android:layout_height="114dp"
                 android:background="@drawable/img_photo"/>
@@ -30,9 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:layout_marginStart="8dp">
                 <TextView
-                    android:id="@+id/tvDestinasi"
+                    android:id="@+id/item_name"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
@@ -41,15 +41,28 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:id="@+id/tvLocation"
+                    android:id="@+id/item_desc"
                     android:drawablePadding="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:text="Malang, Jawa Timur"
                     android:fontFamily="@font/montserrat_extrabold"
                     android:textSize="11dp"
                     android:textColor="#ADADAD"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/button_delete"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="133dp"
+                    android:backgroundTint="@color/main_green"
+                    app:fabSize="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.975"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/baseline_delete_24"
+                    tools:ignore="MissingConstraints" />
 
             </LinearLayout>
 

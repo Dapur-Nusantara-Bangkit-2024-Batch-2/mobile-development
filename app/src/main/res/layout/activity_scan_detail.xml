@@ -99,7 +99,21 @@
                 android:drawableLeft="@drawable/ic_maps"
                 android:fontFamily="@font/montserrat_bold"
                 android:paddingHorizontal="45dp"
-                android:text="Current Location"
+                android:text="@string/open_maps"
+                android:textAllCaps="false"
+                android:textColor="@color/main_green"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_white"
+                android:drawableLeft="@drawable/baseline_save_24"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingHorizontal="45dp"
+                android:text="@string/save_food"
                 android:textAllCaps="false"
                 android:textColor="@color/main_green"
                 android:textSize="16sp" />

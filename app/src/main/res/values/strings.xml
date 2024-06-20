@@ -53,4 +53,10 @@
     <string name="detail_calories">500</string>
     <string name="detail_recipe">Chili</string>
     <string name="detail_description">Yummy</string>
+    <string name="selamat_datang">Selamat Datang!</string>
+    <string name="welcome">Welcome!</string>
+    <string name="your_bookmarks">Your Bookmarks</string>
+    <string name="scan_your_food">Scan Your Food!🍕</string>
+    <string name="open_maps">Open Maps</string>
+    <string name="save_food">Save Food</string>
 </resources>

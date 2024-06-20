@@ -1,5 +1,6 @@
 package com.dicoding.dapurnusantara.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -70,6 +71,27 @@ class ScanDetailActivity : AppCompatActivity() {
             // Fetch food details based on label
             fetchFoodDetails(label)
         }
+
+        binding.saveButton.setOnClickListener {
+            saveFoodData()
+        }
+    }
+
+    private fun saveFoodData() {
+        val foodName = detailresView.text.toString()
+        val calories = foodCal.text.toString()
+        val imageUri = intent.getStringExtra(EXTRA_IMAGE_URI)
+
+        val sharedPreferences = getSharedPreferences("food_data", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        val foodList = sharedPreferences.getStringSet("food_list", mutableSetOf())
+        foodList?.add("$imageUri|$foodName|$calories")
+
+        editor.putStringSet("food_list", foodList)
+        editor.apply()
+
+        Toast.makeText(this, "Food data saved", Toast.LENGTH_SHORT).show()
     }
 
     private fun fetchFoodDetails(foodName: String) {

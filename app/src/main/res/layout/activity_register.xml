@@ -66,23 +66,29 @@
         app:layout_constraintStart_toStartOf="@+id/RegistName"
         app:layout_constraintTop_toBottomOf="@+id/RegistName" />
 
-    <com.dicoding.dapurnusantara.customview.CVPassword
-        android:id="@+id/RegistPassword"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegistPasswordLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        android:minHeight="48dp"
-        android:textSize="13sp"
-        android:background="@drawable/input_bg"
-        android:fontFamily="@font/montserrat_regular"
         android:inputType="textPassword"
-        android:drawableEnd="@drawable/pass_invisible"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="@+id/RegistEmail"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/RegistEmail"
-        app:layout_constraintTop_toBottomOf="@+id/RegistEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistEmail">
+
+        <com.dicoding.dapurnusantara.customview.CVPassword
+            android:id="@+id/RegistPassword"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnRegistAccount"
@@ -95,19 +101,20 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/RegistPassword"
+        app:layout_constraintEnd_toEndOf="@+id/RegistPasswordLayout"
         app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="@+id/RegistPassword"
-        app:layout_constraintTop_toBottomOf="@+id/RegistPassword" />
+        app:layout_constraintStart_toStartOf="@+id/RegistPasswordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/RegistPasswordLayout" />
 
     <TextView
         android:id="@+id/tvLoginRegist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="220dp"
         android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
         android:text="@string/tvLogin"
         android:textColor="@color/black"
         android:textSize="14sp"

@@ -53,24 +53,31 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLoginDescription"
         tools:alpha="1" />
 
-    <com.dicoding.dapurnusantara.customview.CVPassword
-        android:id="@+id/PasswordLogin"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PasswordLoginLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        android:background="@drawable/input_bg"
-        android:fontFamily="@font/montserrat_regular"
-        android:drawableEnd="@drawable/pass_invisible"
         android:inputType="textPassword"
-        android:textColorHint="@color/black"
-        android:textSize="13sp"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="@+id/tvLoginDescription"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvLoginDescription"
         app:layout_constraintTop_toBottomOf="@+id/CVEmail"
-        tools:alpha="1" />
+        tools:alpha="1">
+
+        <com.dicoding.dapurnusantara.customview.CVPassword
+            android:id="@+id/PasswordLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="13sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnLogin"
@@ -83,18 +90,19 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordLogin"
+        app:layout_constraintEnd_toEndOf="@+id/PasswordLoginLayout"
         app:layout_constraintHorizontal_bias="0.178"
-        app:layout_constraintStart_toStartOf="@+id/PasswordLogin"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordLogin" />
+        app:layout_constraintStart_toStartOf="@+id/PasswordLoginLayout"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLoginLayout" />
 
     <TextView
         android:id="@+id/tvRegistDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="96dp"
         android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
         android:text="@string/tvRegist"
         android:textColor="@color/black"
         android:textSize="14sp"

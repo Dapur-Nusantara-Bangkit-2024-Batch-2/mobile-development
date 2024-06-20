@@ -1,8 +1,10 @@
 package com.dicoding.dapurnusantara.ui.home
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +17,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.dicoding.dapurnusantara.R
 import com.dicoding.dapurnusantara.ml.Model3EfficientnetMetadata
@@ -48,6 +52,7 @@ class ScanFragment : Fragment() {
     private lateinit var labels: List<String>
     private lateinit var imageProcessor: ImageProcessor
     private val CAMERA_REQUEST_CODE = 101
+    private val CAMERA_PERMISSION_CODE = 102
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,8 +79,12 @@ class ScanFragment : Fragment() {
         }
 
         cameraBtn.setOnClickListener {
-            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+            } else {
+                openCamera()
+            }
         }
 
         predictBtn.setOnClickListener {
@@ -97,6 +106,11 @@ class ScanFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun openCamera() {
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
     }
 
     private fun predictImage() {
@@ -157,4 +171,20 @@ class ScanFragment : Fragment() {
             null
         }
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                openCamera()
+            } else {
+                Toast.makeText(requireActivity(), "Camera permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }
+

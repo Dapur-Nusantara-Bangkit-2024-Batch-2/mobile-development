@@ -123,6 +123,7 @@ class LoginActivity : AppCompatActivity() {
                 userLoginViewModel.saveLoginSession(true)
                 userLoginViewModel.saveToken(loginResult.token)
                 userLoginViewModel.saveName(loginResult.name)
+                userLoginViewModel.saveEmail(binding.CVEmail.text.toString().trim())
             }
         }
     }
