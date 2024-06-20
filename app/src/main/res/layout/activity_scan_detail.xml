@@ -66,6 +66,20 @@
                 android:textColor="@color/black"
                 android:text="@string/detail_desc"/>
 
+            <Button
+                android:id="@+id/showMap"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/button_white"
+                android:drawableLeft="@drawable/ic_maps"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingHorizontal="45dp"
+                android:text="Current Location"
+                android:textAllCaps="false"
+                android:textColor="@color/main_green"
+                android:textSize="16sp" />
+
         </LinearLayout>
     </ScrollView>
 
