@@ -45,7 +45,12 @@
     <string name="Gallery">Gallery</string>
     <string name="Camera">Camera</string>
     <string name="scan">Scan</string>
+    <string name="restaurant">Restaurant</string>
     <string name="nama_makanan">Food Name</string>
     <string name="detail_food">Food Detail</string>
     <string name="detail_desc">Food Description</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="detail_calories">500</string>
+    <string name="detail_recipe">Chili</string>
+    <string name="detail_description">Yummy</string>
 </resources>

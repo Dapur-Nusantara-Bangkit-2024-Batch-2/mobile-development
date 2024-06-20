@@ -5,20 +5,31 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager
+import com.dicoding.dapurnusantara.MainActivity
 import com.dicoding.dapurnusantara.R
+import com.dicoding.dapurnusantara.UserPreferences
 import com.dicoding.dapurnusantara.adapter.OnboardingPagerAdapter
 import com.dicoding.dapurnusantara.ui.login.LoginActivity
+import com.dicoding.dapurnusantara.ui.login.dataStore
 import com.dicoding.dapurnusantara.ui.register.RegisterActivity
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class OnboardingActivity : AppCompatActivity() {
     private var viewPager: ViewPager? = null
     private var registerButton: Button? = null
     private var loginButton: Button? = null
     private var pagerAdapter: OnboardingPagerAdapter? = null
+    private lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        userPreferences = UserPreferences.getInstance(dataStore)
+        checkLoginSession()
+
         setContentView(R.layout.activity_onboarding)
 
         viewPager = findViewById(R.id.viewPager)
@@ -77,4 +88,15 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun checkLoginSession() {
+        userPreferences.getLoginSession().onEach { isLoggedIn ->
+            if (isLoggedIn) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }.launchIn(lifecycleScope)
+    }
 }
+

@@ -11,4 +11,7 @@ interface APIService {
     @POST("/user/login")
     fun loginUser(@Body requestLogin: LoginDataAccount): Call<ResponseLogin>
 
+    @GET("/detail-food/{foodName}")
+    fun getFoodDetail(@Path("foodName") foodName: String): Call<FoodDetailResponse>
+
 }

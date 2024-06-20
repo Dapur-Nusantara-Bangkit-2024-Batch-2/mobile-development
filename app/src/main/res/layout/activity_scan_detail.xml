@@ -22,12 +22,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
         android:layout_below="@id/btnBack">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:paddingBottom="24dp"
             android:orientation="vertical">
 
             <!-- Your existing views -->
@@ -45,7 +47,7 @@
             <ImageView
                 android:id="@+id/detailImageView"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="32dp"
                 tools:src="@tools:sample/avatars" />
 
@@ -59,13 +61,34 @@
                 android:text="@string/detail_food"/>
 
             <TextView
+                android:id="@+id/foodCal"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_green"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/foodRecipe"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="18dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/black"
-                android:text="@string/detail_desc"/>
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/foodDesc"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/black"/>
 
             <Button
                 android:id="@+id/showMap"
@@ -83,5 +106,14 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:visibility="invisible" />
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -46,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             binding.CVEmail.clearFocus()
             binding.PasswordLogin.clearFocus()
+            hideKeyboard()  // Menyembunyikan keyboard jika diperlukan
 
             if (isDataValid()) {
                 val loginData = LoginDataAccount(
@@ -58,10 +60,35 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.CVEmail.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                showKeyboard(v)
+            }
+        }
+
+        binding.PasswordLogin.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                showKeyboard(v)
+            }
+        }
+
         binding.btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
+
+    // Fungsi untuk menampilkan keyboard
+    private fun showKeyboard(view: View) {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+    }
+
+    // Fungsi untuk menyembunyikan keyboard
+    private fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+    }
+
 
     private fun observeViewModels() {
         val preferences = UserPreferences.getInstance(dataStore)
