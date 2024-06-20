@@ -40,12 +40,14 @@ private const val ARG_PARAM2 = "param2"
 class ScanFragment : Fragment() {
 
     private lateinit var selectBtn: Button
+    private lateinit var cameraBtn: Button
     private lateinit var predictBtn: Button
     private lateinit var resView: TextView
     private lateinit var imageView: ImageView
     private lateinit var bitmap: Bitmap
     private lateinit var labels: List<String>
     private lateinit var imageProcessor: ImageProcessor
+    private val CAMERA_REQUEST_CODE = 101
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +56,7 @@ class ScanFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_scan, container, false)
 
         selectBtn = view.findViewById(R.id.selectBtn)
+        cameraBtn = view.findViewById(R.id.cameraBtn)
         predictBtn = view.findViewById(R.id.predictBtn)
         resView = view.findViewById(R.id.resView)
         imageView = view.findViewById(R.id.imageView)
@@ -68,6 +71,11 @@ class ScanFragment : Fragment() {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
             startActivityForResult(intent, 100)
+        }
+
+        cameraBtn.setOnClickListener {
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
         }
 
         predictBtn.setOnClickListener {
@@ -129,6 +137,10 @@ class ScanFragment : Fragment() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        } else if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val photo = data.extras?.get("data") as Bitmap
+            bitmap = photo
+            imageView.setImageBitmap(bitmap)
         }
     }
 

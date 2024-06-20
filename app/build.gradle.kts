@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -54,6 +55,8 @@ dependencies {
     implementation ("androidx.activity:activity:1.9.0")
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     kapt ("androidx.room:room-compiler:2.5.1")
     implementation ("androidx.room:room-ktx:2.5.1")
 
@@ -80,7 +83,5 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     implementation ("com.squareup.picasso:picasso:2.71828")
-
-
 
 }
