@@ -1,8 +1,10 @@
 package com.dicoding.dapurnusantara.ui.home
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
@@ -12,6 +14,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.FileProvider
 import com.dicoding.dapurnusantara.R
 import com.dicoding.dapurnusantara.ml.Model3EfficientnetMetadata
 import org.tensorflow.lite.DataType
@@ -19,6 +23,8 @@ import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
@@ -67,13 +73,20 @@ class ScanFragment : Fragment() {
         predictBtn.setOnClickListener {
             predictImage()
 
-            // Redirect to ScanDetailActivity
-            val intent = Intent(requireActivity(), ScanDetailActivity::class.java)
-            intent.putExtra(ScanDetailActivity.EXTRA_IMAGE_BITMAP, bitmap)
-            intent.putExtra(ScanDetailActivity.EXTRA_PREDICTED_LABEL, resView.text.toString())
-            startActivity(intent)
-        }
+            // Save the bitmap to a file and get the URI
+            val imageUri = saveBitmapToFile(bitmap, requireActivity())
 
+            // Redirect to ScanDetailActivity
+            if (imageUri != null) {
+                val intent = Intent(requireActivity(), ScanDetailActivity::class.java).apply {
+                    putExtra(ScanDetailActivity.EXTRA_IMAGE_URI, imageUri.toString())
+                    putExtra(ScanDetailActivity.EXTRA_PREDICTED_LABEL, resView.text.toString())
+                }
+                startActivity(intent)
+            } else {
+                Toast.makeText(requireActivity(), "Failed to save image", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         return view
     }
@@ -116,6 +129,20 @@ class ScanFragment : Fragment() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    private fun saveBitmapToFile(bitmap: Bitmap, context: Context): Uri? {
+        return try {
+            val file = File(context.cacheDir, "image_${System.currentTimeMillis()}.png")
+            val outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+            FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
         }
     }
 }
