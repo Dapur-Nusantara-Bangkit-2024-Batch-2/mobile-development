@@ -1,17 +1,11 @@
 package com.dicoding.dapurnusantara.ui.login
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -26,10 +20,10 @@ import com.dicoding.dapurnusantara.ui.ViewModelFactory
 import com.dicoding.dapurnusantara.ui.register.RegisterActivity
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-
     private val loginViewModel: LoginViewModel by lazy {
         ViewModelProvider(this)[LoginViewModel::class.java]
     }
@@ -47,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             binding.CVEmail.clearFocus()
             binding.PasswordLogin.clearFocus()
-            hideKeyboard()  // Menyembunyikan keyboard jika diperlukan
+            hideKeyboard()
 
             if (isDataValid()) {
                 val loginData = LoginDataAccount(
@@ -77,18 +71,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    // Fungsi untuk menampilkan keyboard
     private fun showKeyboard(view: View) {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    // Fungsi untuk menyembunyikan keyboard
     private fun hideKeyboard() {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
     }
-
 
     private fun observeViewModels() {
         val preferences = UserPreferences.getInstance(dataStore)

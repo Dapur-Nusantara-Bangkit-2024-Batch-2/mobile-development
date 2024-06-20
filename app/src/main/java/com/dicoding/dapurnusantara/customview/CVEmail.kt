@@ -2,22 +2,15 @@ package com.dicoding.dapurnusantara.customview
 
 import android.content.Context
 import android.graphics.Canvas
-import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Patterns
-import android.view.MotionEvent
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.dicoding.dapurnusantara.R
-import com.google.android.material.textfield.TextInputEditText
 
 class CVEmail : AppCompatEditText, View.OnFocusChangeListener {
 

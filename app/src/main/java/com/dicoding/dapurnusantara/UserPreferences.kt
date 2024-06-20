@@ -51,6 +51,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
             preferences[emailKey] ?: ""
         }
     }
+
     suspend fun saveEmail(email: String) {
         dataStore.edit { preferences ->
             preferences[emailKey] = email
