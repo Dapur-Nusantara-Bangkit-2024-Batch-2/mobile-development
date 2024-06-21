@@ -33,7 +33,7 @@ class ScanFragment : Fragment() {
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var bitmap: Bitmap
+    private var bitmap: Bitmap? = null
     private lateinit var labels: List<String>
     private lateinit var imageProcessor: ImageProcessor
     private val CAMERA_REQUEST_CODE = 101
@@ -73,20 +73,24 @@ class ScanFragment : Fragment() {
         }
 
         binding.predictBtn.setOnClickListener {
-            predictImage()
-            val imageUri = saveBitmapToFile(bitmap, requireActivity())
-
-            if (imageUri != null) {
-                val intent = Intent(requireActivity(), ScanDetailActivity::class.java).apply {
-                    putExtra(ScanDetailActivity.EXTRA_IMAGE_URI, imageUri.toString())
-                    putExtra(
-                        ScanDetailActivity.EXTRA_PREDICTED_LABEL,
-                        binding.resView.text.toString()
-                    )
-                }
-                startActivity(intent)
+            if (bitmap == null) {
+                Toast.makeText(requireActivity(), "Select image first", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireActivity(), "Failed to save image", Toast.LENGTH_SHORT).show()
+                predictImage()
+                val imageUri = saveBitmapToFile(bitmap!!, requireActivity())
+
+                if (imageUri != null) {
+                    val intent = Intent(requireActivity(), ScanDetailActivity::class.java).apply {
+                        putExtra(ScanDetailActivity.EXTRA_IMAGE_URI, imageUri.toString())
+                        putExtra(
+                            ScanDetailActivity.EXTRA_PREDICTED_LABEL,
+                            binding.resView.text.toString()
+                        )
+                    }
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(requireActivity(), "Failed to save image", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
@@ -100,7 +104,7 @@ class ScanFragment : Fragment() {
 
     private fun predictImage() {
         val tensorImage = TensorImage(DataType.FLOAT32)
-        tensorImage.load(bitmap)
+        tensorImage.load(bitmap!!)
 
         val processedTensorImage = imageProcessor.process(tensorImage)
 
@@ -178,4 +182,5 @@ class ScanFragment : Fragment() {
         _binding = null
     }
 }
+
 

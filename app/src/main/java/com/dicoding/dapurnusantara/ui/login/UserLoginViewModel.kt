@@ -1,15 +1,9 @@
 package com.dicoding.dapurnusantara.ui.login
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.dicoding.dapurnusantara.R
 import com.dicoding.dapurnusantara.UserPreferences
 import kotlinx.coroutines.launch
 
