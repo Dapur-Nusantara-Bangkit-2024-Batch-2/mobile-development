@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/tv_scan"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/black" />
 
@@ -76,8 +76,8 @@
                 android:id="@+id/resView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="predict name"
-                android:textSize="30dp"
+                android:text="@string/predict_name"
+                android:textSize="30sp"
                 android:visibility="gone"
                 tools:ignore="MissingConstraints" />
 

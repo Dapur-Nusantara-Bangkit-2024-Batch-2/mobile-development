@@ -35,9 +35,9 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Bromo Tengger Semeru with Amazing Sunrise and spots"
+                    android:text="@string/food_name"
                     android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/item_desc"
@@ -45,9 +45,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Malang, Jawa Timur"
+                    android:text="@string/food_calories"
                     android:fontFamily="@font/montserrat_extrabold"
-                    android:textSize="11dp"
+                    android:textSize="11sp"
                     android:textColor="#ADADAD"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -61,7 +61,7 @@
                     app:layout_constraintHorizontal_bias="0.975"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/baseline_delete_24"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
             </LinearLayout>
 

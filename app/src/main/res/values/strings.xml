@@ -2,7 +2,7 @@
     <string name="app_name">dapurnusantara</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
-    <string name="dot">&#8226;</string> <!-- This is the dot symbol -->
+    <!-- This is the dot symbol -->
     <string name="slide_1_title">Welcome to Taste of Indonesia!</string>
     <string name="slide_2_title">Scan your food🍱</string>
     <string name="slide_3_title">Check your food calories</string>
@@ -14,21 +14,11 @@
     <string name="title_register">Hello There!</string>
     <string name="desc_register">You need to register first</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="username_login">Username</string>
-    <string name="password_login">Password</string>
-    <string name="login_google">Or Login With Google</string>
     <string name="tvRegist">Don’t have any account?</string>
     <string name="btnRegistLogin">Register</string>
-    <string name="username_register">Enter your Username</string>
-    <string name="email_register">Enter your Email</string>
-    <string name="password_register">Enter your Password</string>
     <string name="btnRegister">Register</string>
     <string name="tvLogin">Already have account?</string>
     <string name="btnLoginRegist">Login</string>
-    <string name="home_fragment">Home Fragment</string>
-    <string name="profile_fragment">Profile Fragment</string>
-    <string name="scan_fragment">Scan Fragment</string>
     <string name="profile">Profile</string>
     <string name="hint_masukkan_email">Enter your Email</string>
     <string name="error_wrong_email">Email format not match</string>
@@ -48,15 +38,15 @@
     <string name="restaurant">Restaurant</string>
     <string name="nama_makanan">Food Name</string>
     <string name="detail_food">Food Detail</string>
-    <string name="detail_desc">Food Description</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="detail_calories">500</string>
-    <string name="detail_recipe">Chili</string>
-    <string name="detail_description">Yummy</string>
-    <string name="selamat_datang">Selamat Datang!</string>
     <string name="welcome">Welcome!</string>
     <string name="your_bookmarks">Your Bookmarks</string>
     <string name="scan_your_food">Scan Your Food!🍕</string>
     <string name="open_maps">Open Maps</string>
     <string name="save_food">Save Food</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="logout">Logout</string>
+    <string name="predict_name">predict name</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_calories">Food Calories</string>
 </resources>

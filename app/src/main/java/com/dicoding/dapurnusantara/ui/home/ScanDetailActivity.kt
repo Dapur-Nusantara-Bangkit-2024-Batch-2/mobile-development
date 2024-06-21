@@ -32,6 +32,10 @@ class ScanDetailActivity : AppCompatActivity() {
         val imageUri = intent.getStringExtra(EXTRA_IMAGE_URI)
         val label = intent.getStringExtra(EXTRA_PREDICTED_LABEL)
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
         binding.showMap.setOnClickListener {
             val placeName = getString(R.string.restaurant) + binding.detailResView.text.toString()
             val gmmIntentUri = Uri.parse("geo:0,0?q=$placeName")

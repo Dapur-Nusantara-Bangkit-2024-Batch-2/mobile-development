@@ -14,7 +14,7 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="@string/profile"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Username" />
+            android:text="@string/username" />
 
         <TextView
             android:id="@+id/tvUsernameProfile"
@@ -62,9 +62,9 @@
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
-            android:text="Username"
+            android:text="@string/username"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvEmailRegis"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="E-mail" />
+            android:text="@string/email" />
 
         <TextView
             android:id="@+id/tvEmailProfile"
@@ -85,10 +85,10 @@
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnLogout"
@@ -97,7 +97,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_red"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Logout"
+            android:text="@string/logout"
             android:onClick="logout"
             android:textAllCaps="false"
             android:textColor="@color/red"
