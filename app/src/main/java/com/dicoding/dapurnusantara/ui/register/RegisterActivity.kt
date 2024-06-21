@@ -2,12 +2,8 @@ package com.dicoding.dapurnusantara.ui.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.dapurnusantara.MainActivity
@@ -37,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setupActionBar()
         observeLoginSession()
         observeRegistrationResponse()
@@ -90,6 +87,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
+
     private fun validateAndRegisterUser() {
         binding.apply {
             RegistName.clearFocus()
@@ -157,13 +155,13 @@ class RegisterActivity : AppCompatActivity() {
                     resources.getString(R.string.emailTaken),
                     binding.RegistEmail.text.toString()
                 )
-                Toast.makeText(this, resources.getString(R.string.emailTaken), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getString(R.string.emailTaken), Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
-
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE

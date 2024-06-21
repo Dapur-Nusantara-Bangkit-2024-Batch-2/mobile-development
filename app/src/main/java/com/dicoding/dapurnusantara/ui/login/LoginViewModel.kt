@@ -60,7 +60,10 @@ class LoginViewModel : ViewModel() {
         _isLoadingRegist.value = true
         val api = APIConfig.getApiService().registUser(registDataUser)
         api.enqueue(object : retrofit2.Callback<ResponseDetail> {
-            override fun onResponse(call: Call<ResponseDetail>, response: Response<ResponseDetail>) {
+            override fun onResponse(
+                call: Call<ResponseDetail>,
+                response: Response<ResponseDetail>
+            ) {
                 _isLoadingRegist.value = false
                 if (response.isSuccessful) {
                     isErrorRegist = false

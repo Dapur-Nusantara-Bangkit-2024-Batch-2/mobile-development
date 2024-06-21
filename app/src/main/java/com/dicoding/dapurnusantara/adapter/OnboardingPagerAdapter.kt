@@ -4,10 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.dicoding.dapurnusantara.R
+import com.dicoding.dapurnusantara.databinding.SlideLayoutBinding
 
 class OnboardingPagerAdapter(private val context: Context) : PagerAdapter() {
     private val slideImages =
@@ -33,19 +32,15 @@ class OnboardingPagerAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(context)
-        val slideLayout = inflater.inflate(R.layout.slide_layout, container, false)
+        val binding = SlideLayoutBinding.inflate(inflater, container, false)
 
-        val slideImageView = slideLayout.findViewById<ImageView>(R.id.slideImage)
-        val slideTitleView = slideLayout.findViewById<TextView>(R.id.slideTitle)
-        val slideDescriptionView = slideLayout.findViewById<TextView>(R.id.slideDescription)
+        binding.slideImage.setImageResource(slideImages[position])
+        binding.slideTitle.text = slideTitles[position]
+        binding.slideDescription.text = slideDescriptions[position]
 
-        slideImageView.setImageResource(slideImages[position])
-        slideTitleView.text = slideTitles[position]
-        slideDescriptionView.text = slideDescriptions[position]
+        container.addView(binding.root)
 
-        container.addView(slideLayout)
-
-        return slideLayout
+        return binding.root
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {

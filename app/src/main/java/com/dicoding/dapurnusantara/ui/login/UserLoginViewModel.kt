@@ -54,6 +54,7 @@ class UserLoginViewModel(private val pref: UserPreferences) : ViewModel() {
             pref.saveEmail(email)
         }
     }
+
     fun clearDataLogin() {
         viewModelScope.launch {
             pref.clearDataLogin()

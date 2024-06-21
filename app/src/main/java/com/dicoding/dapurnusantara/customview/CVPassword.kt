@@ -3,23 +3,16 @@ package com.dicoding.dapurnusantara.customview
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
-import android.os.Bundle
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.dicoding.dapurnusantara.R
-import com.google.android.material.textfield.TextInputEditText
 
 class CVPassword : AppCompatEditText, View.OnTouchListener {
 
@@ -54,6 +47,7 @@ class CVPassword : AppCompatEditText, View.OnTouchListener {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 validatePassword()
             }
+
             override fun afterTextChanged(s: Editable?) {}
         })
     }
@@ -89,6 +83,7 @@ class CVPassword : AppCompatEditText, View.OnTouchListener {
         hint = context.getString(R.string.hint_masukkan_password)
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
+
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         if (!focused) {

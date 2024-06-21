@@ -1,4 +1,5 @@
 package com.dicoding.dapurnusantara.dataclass
+
 data class RegisterDataAccount(
     var name: String,
     var email: String,
